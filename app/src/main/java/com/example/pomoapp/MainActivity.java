@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //this is committing correctly
-    private Button task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        task = (Button) findViewById(R.id.tasksAndAssignments);
+
+        Button task = (Button) findViewById(R.id.tasksAndAssignments);
+        Button pomo = findViewById(R.id.Timer);
         task.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -24,10 +25,20 @@ public class MainActivity extends AppCompatActivity {
                 openTask();
             }
         });
+        pomo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTimerActivity();
+            }
+        });
     }
 
     public void openTask() {
         Intent intent = new Intent(this, TaskActivity.class);
+        startActivity(intent);
+    }
+    public void openTimerActivity() {
+        Intent intent = new Intent(this, pomoActivity.class);
         startActivity(intent);
     }
 }

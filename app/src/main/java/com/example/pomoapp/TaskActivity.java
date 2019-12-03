@@ -1,5 +1,6 @@
 package com.example.pomoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,11 +18,22 @@ public class TaskActivity extends AppCompatActivity {
         final Button remove = findViewById(R.id.RemoveTask);
         final Button add = findViewById(R.id.AddTask);
         remove.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
+            @Override
+            public void onClick(View view) {
                 TextView text = findViewById(R.id.listOfTasks);
-                text.setText("this will remove a element of the list");
+                text.setText("Task removed");
             }
         });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addTask();
+            }
+        });
+
+    }
+    public void addTask() {
+        Intent intent = new Intent(this, AddTaskActivity.class);
+        startActivity(intent);
     }
 }
