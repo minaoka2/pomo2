@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class pomoActivity extends AppCompatActivity {
     private Button start;
     private Button reset;
+    private Button pause;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class pomoActivity extends AppCompatActivity {
         final TextView timer = findViewById(R.id.timerDisplay);
         start = findViewById(R.id.startPomo);
         reset = findViewById(R.id.resetPomo);
+        pause = findViewById(R.id.pauseTimer);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +33,12 @@ public class pomoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timer.setText("this will reset the timer");
+            }
+        });
+        pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timer.setText("this will pause the timer");
             }
         });
 

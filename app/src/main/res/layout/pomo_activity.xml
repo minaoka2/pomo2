@@ -23,6 +23,13 @@
         android:text="Start 25 Minute pomodoro" />
 
     <Button
+        android:id="@+id/pauseTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Pause" />
+
+    <Button
         android:id="@+id/resetPomo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
