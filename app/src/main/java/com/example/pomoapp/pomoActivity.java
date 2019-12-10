@@ -48,8 +48,6 @@ public class pomoActivity extends AppCompatActivity {
     private long timeLeftInMill = START_TIME_IN_MILL;
     private NotificationManagerCompat notificationManager;
 
-    private static HttpURLConnection connection;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,15 +77,7 @@ public class pomoActivity extends AppCompatActivity {
         notificationManager = NotificationManagerCompat.from(this);
         createNotificationChannels();
 
-    }
 
-    private static String requestQuote() throws Exception {
-        URL url = new URL("https://quotes.rest/qod?category=inspire");
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        InputStream input = connection.getInputStream();
-        String quote = input.toString();
-        return quote;
     }
     private void startTimer() {
        countDownTImer = new CountDownTimer(timeLeftInMill, 1000) {

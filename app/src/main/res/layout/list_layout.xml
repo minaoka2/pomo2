@@ -5,8 +5,5 @@
     android:padding="20dp"
     android:text="text view"
     android:textStyle="bold"
-
-
-
     >
 </TextView>
