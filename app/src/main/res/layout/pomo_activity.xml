@@ -13,9 +13,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="80dp"
-        android:text="00:00"
+        android:text="@string/live_time"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="50dp" />
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/startPomo"
@@ -23,14 +23,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="20dp"
-        android:text="Start"
-        android:textSize="20dp" />
+        android:text="@string/start_timer"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/resetPomo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reset timer"
-        android:textSize="20dp" />
+        android:text="@string/reset_timer"
+        android:textSize="20sp" />
 
 </LinearLayout>
