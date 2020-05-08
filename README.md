@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Pomodoro Technique is a useful technique for studying that allows an individual to get things done more efficiently. It consists of working on a task for a specified length of time, taking a short break, and then resuming the task, repeating this cycle until the task is finished and/or the individual decides that enough progresss on the task has been made in a given time period.
+The Pomodoro Technique is a useful technique for studying that allows an individual to get things done more efficiently. It consists of working on a task for a specified length of time, taking a short break, and then resuming the task, repeating this cycle until the task is finished and/or the individual decides that enough progresss on the task has been made in a given time period. By breaking a large task into smaller tasks with much-needed breaks in between, engaging in the Pomodoro technique allows for getting a more manageable grip on large tasks that may be overwhelming at first.
 
 ## Features of the app
 
