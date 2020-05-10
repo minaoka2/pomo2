@@ -2,6 +2,9 @@ package com.example.pomoapp
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -83,31 +86,42 @@ class pomoActivity : AppCompatActivity() {
     }
 
     private fun sendNotificationChannel() {
+        // use val instead of var since it will be immutable then
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_timer_notification)
-                .setContentTitle("Timer is complete")
-                .setContentText("take a quick break, you deserve it!")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setSmallIcon(R.drawable.ic_timer_icon)
+                .setContentTitle("Timer is Complete")
+                .setContentText("take a 5-minute break, you deserve it:) resume the timer after you're done!")
+                .setStyle(NotificationCompat.BigTextStyle()
+                        .bigText("take a 5-minute break, you deserve it:) resume the timer after you're done!"))
+                // set priority to HIGH so that notification will be displayed at top of screen
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                // set the intent that will fire when the user taps the notification
+                .setContentIntent(PendingIntent.getActivity(this, 0, intent, 0))
+                .setAutoCancel(true)    // notification is removed when tapped by user
+                .setVibrate(longArrayOf(1L, 2L, 3L))    // add vibration to notification
                 .build()
         notificationManager!!.notify(1, notification)
     }
 
+    // Create notification channel, including setting priority of notification
     private fun createNotificationChannels() {
+        // if statement that checks to make sure OS is API 26 or greater
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel1 = NotificationChannel(
+            val notifChannel1 = NotificationChannel(
                     CHANNEL_ID,
                     "Channel 1",
                     NotificationManager.IMPORTANCE_DEFAULT
             )
-            channel1.description = "this is channel 1"
-            val manager = getSystemService(NotificationManager::class.java)
-            manager.createNotificationChannel(channel1)
+            notifChannel1.description = "This is Channel 1"
+            val notificationManager:NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(notifChannel1)
         }
     }
 
     companion object {
         // 25 minutes to milliseconds
-        private const val START_TIME_IN_MILL: Long = 1800000
+        private const val START_TIME_IN_MILL: Long = 18000
     }
 }
